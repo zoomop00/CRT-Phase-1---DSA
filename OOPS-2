@@ -1,0 +1,37 @@
+Getter & Setter
+***********************************************************************************************************************************************************************
+#include <iostream>
+using namespace std;
+class Student 
+{
+    string name;
+    int age;
+    public:
+    void setter(string n, int a)
+    {
+    name=n;
+    age=a;
+    }
+    int getter()
+    {
+    return age;
+    }
+    void display()
+    {
+    cout<<name<<" "<<age<<endl;
+    }
+    ~Student()
+    {
+        cout<<"Destructor called"<<endl;
+    }
+};
+
+int main() 
+{
+    Student obj1;
+    obj1.setter("Vishal",22);
+    obj1.display();
+
+    return 0;
+}
+**********************************************************************************************************************************************************************
