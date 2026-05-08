@@ -1,0 +1,40 @@
+Copy Constructor
+
+****************************************************************************************************************************************************************************
+#include <iostream>
+using namespace std;
+
+class Student 
+{
+    public:
+
+    string name;
+    int age;
+    int roll_no;
+
+    Student(string n, int a, int r)
+    {
+        name = n;
+        age = a;
+        roll_no = r;
+    }
+
+    Student(const Student &a)
+    {
+        name = a.name;
+        age = a.age;
+        roll_no = a.roll_no;
+    }
+      
+};
+
+int main() 
+{
+    Student obj1("Vishal Meghnani", 22, 001);
+    Student obj2(obj1);
+    cout << obj1.name << " "<< obj1.age << " "<< obj1.roll_no << endl;
+    cout << obj2.name << " "<< obj2.age << " "<< obj2.roll_no << endl;
+
+    return 0;
+}
+*****************************************************************************************************************************************************************************
