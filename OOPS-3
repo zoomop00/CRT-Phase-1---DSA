@@ -1,0 +1,39 @@
+Multiple Inheritance
+***********************************************************************************************************************
+#include <iostream>
+using namespace std;
+
+class Human
+{
+protected:
+    string name;
+};
+
+class Person
+{
+protected:
+    int age;
+};
+
+class Student : public Human, public Person
+{
+    int roll_no;
+public:
+    Student(string n, int a, int r)
+    {
+        name = n;
+        age = a;
+        roll_no = r;
+    }
+    void display() {
+        cout << name << " " << age << " " << roll_no << endl;
+    }
+};
+
+int main() 
+{
+    Student s("Vishal", 22, 101);
+    s.display();  
+    return 0;
+}
+**************************************************************************************************************************
