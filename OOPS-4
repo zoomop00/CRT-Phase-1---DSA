@@ -1,0 +1,28 @@
+Function Overloading
+***********************************************************************************************************************
+#include <iostream>
+using namespace std;
+
+class Student
+{
+    int length;
+    int breadth;
+
+    public:
+    int area(int l, int r)
+    {
+        return (l*r);
+    }
+    int area (int side)
+    {
+        return (side*side);
+    }
+};
+int main() 
+{
+    Student obj;
+    cout<<"Area of Rectangle is:"<<obj.area(3,4)<<endl;
+    cout<<"Area of Square is:"<<obj.area(4)<<endl;
+    return 0;
+};
+***********************************************************************************************************************
