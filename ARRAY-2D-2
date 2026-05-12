@@ -1,0 +1,30 @@
+Maximum Sum Of Subarray
+*****************************************************************************************************************************
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
+class Solution {
+public:
+    int maxSubArraySum(vector<int>& arr, int k) {
+        int i = 0, j = 0;
+        int max_sum = INT_MIN;
+        int curr_sum = 0;
+        int n = arr.size();
+
+        while (j < n) {
+            curr_sum += arr[j];
+            if (j - i + 1 < k) {
+                j++;
+            } else if (j - i + 1 == k) {
+                max_sum = max(max_sum, curr_sum);
+                curr_sum -= arr[i];
+                i++;
+                j++;
+            }
+        }
+        return max_sum;
+    }
+};
+*****************************************************************************************************************************
