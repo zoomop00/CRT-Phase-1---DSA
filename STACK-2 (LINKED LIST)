@@ -1,77 +1,56 @@
-PUSH(),POP() USING LINKED LIST
+PUSH(),POP(),EMPTY(),TOP() USING LINKED LIST
 *************************************************************************************************************************
 #include <iostream>
 using namespace std;
 
+class node {
+public:
+    int value;
+    node* next;
+    node(int v) {
+        value = v;
+        next = nullptr;
+    }
+};
+
 class stack {
-    struct node {
-        int data;
-        node* next;
-        node(int v) {
-            data = v;
-            next = nullptr;
-        }
-    };
-
     node* head;
-
 public:
     stack() {
         head = nullptr;
     }
-
     void push(int v) {
         node* n = new node(v);
         n->next = head;
         head = n;
     }
-
     void pop() {
-        if (head == nullptr) {
-            cout << "\n";
-            return;
+        if (head != nullptr) {
+            node* n = head->next;
+            delete head;
+            head = n;
         }
-        node* temp = head;
-        head = head->next;
-        delete temp;
     }
-
     bool empty() {
         return head == nullptr;
     }
-
     int top() {
-        if (head == nullptr) {
-            cout << "\n";
-            return -1;
-        }
-        return head->data;
-    }
-
-    void display() {
-        node* temp = head;
-        while (temp != nullptr) {
-            cout << temp->data << " ";
-            temp = temp->next;
-        }
-        cout << endl;
+        if (head != nullptr)
+            return head->value;
+        throw std::runtime_error("Stack is empty");
     }
 };
 
-int main() 
-{
+int main() {
     stack st;
-    st.push(10);
-    st.push(20);
-    st.push(30);
+    st.push(1);
+    st.push(2);
+    st.push(3);
 
-    st.display();
-
-    st.pop();
-    st.display();
-
-    cout << "Top element: " << st.top() << endl;
-
+    while (!st.empty()) {
+        cout << st.top() << " ";
+        st.pop();
+    }
     return 0;
 }
 *************************************************************************************************************************
